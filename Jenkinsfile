@@ -5,18 +5,7 @@ pipeline {
       steps {
         echo 'BUILD'
         echo ''
-      }
-      post {
-        always {
-          echo 'Esto siempre saldrá por pantalla'
-        }
-        failure {
-          
-        }
-        success{
-        
-        }
-      }
+      }   
     }
     stage('Test') {
       steps {
