@@ -17,10 +17,5 @@ pipeline {
         echo 'DEPLOY'
       }
     }
-    post {
-      always(dir){
-        cleanWS
-      }
-    }
   }
 }
