@@ -1,7 +1,7 @@
 pipeline {
-  agent none
+  agent any
   stages {
-    stage('Prueba') {
+    stage('Inicio') {
       steps {
         echo 'Todo ok'
       }
