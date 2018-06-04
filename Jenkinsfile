@@ -1,9 +1,9 @@
 pipeline {
-  agent any
+  agent none
   stages {
-    stage('') {
+    stage('Prueba') {
       steps {
-        build 'Prueba'
+        echo 'Todo ok'
       }
     }
   }
