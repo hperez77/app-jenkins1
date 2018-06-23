@@ -21,9 +21,6 @@ pipeline {
     stage('Push Regestry') {
       steps {
         withDockerRegistry([credentialsId: "DockerHub"], url: "") {
-        echo 'PASSWORD: $password'
-echo 'USER: $user'
-
           sh 'docker tag app:test hperez77/app:stable'
           sh 'docker push hperez77/app:stable'
         }
