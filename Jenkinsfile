@@ -3,17 +3,21 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t app .'
+        sh 'docker build -t app:test .'
       }
     }
     stage('Test') {
       steps {
         echo 'TEST'
+        sh 'docker run --rm --name app -id -p 80:80 app:test'
+        sh '/bin/nc -vz localhost 80'
       }
     }
-    stage('Deploy') {
+    stage('Push Regestry') {
       steps {
-        echo 'DEPLOY'
+        echo 'Push Regestry'
+        sh 'docker tag app:test hperez77/app:stable'
+        sh 'docker push hperez77/app:stable'
       }
     }
   }
