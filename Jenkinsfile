@@ -20,9 +20,10 @@ pipeline {
     }
     stage('Push Regestry') {
       steps {
-        echo 'Push Regestry'
-        sh 'docker tag app:test hperez77/app:stable'
-        sh 'docker push hperez77/app:stable'
+        withCredentials([ussernamePassword(credentialsId:'DockerHub', passwordVariable:'password', usernameVariable: 'user')]) {
+          sh 'docker tag app:test hperez77/app:stable'
+          sh 'docker push hperez77/app:stable'
+        }
       }
     }
   }
