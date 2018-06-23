@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Push Regestry') {
       steps {
-        withDockerRegistry([credentialsId: "DockerHub", url: "docker.io/hperez77/pruebas/"]) {
+        withDockerRegistry([credentialsId: "DockerHub", url: "https://index.docker.io/v1/"]) {
           sh 'docker tag app:test hperez77/app:stable'
           sh 'docker push hperez77/app:stable'
           
