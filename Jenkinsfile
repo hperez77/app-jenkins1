@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Push Regestry') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'password', usernameVariable: 'user')]) {
+        withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'password', usernameVariable: 'username')]) {
 echo 'PASSWORD: $password'
 echo 'USER: $user'
 
